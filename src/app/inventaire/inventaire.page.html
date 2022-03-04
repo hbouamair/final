@@ -1,0 +1,45 @@
+
+ 
+
+  <ion-segment
+          [(ngModel)]="selectedSegement"
+          (ionChange)="segmentChanged($event)"
+          value="CreateInv"
+           >
+          <ion-segment-button  value="CreateInv">
+       
+              <ion-icon  src="../../assets/createInv.svg "></ion-icon>
+              <ion-label>Create Inventaire</ion-label>
+          
+          </ion-segment-button>
+          <ion-segment-button  value="listInventaire" >
+            
+              <ion-icon src="../../assets/listeInve.svg "></ion-icon>
+              <ion-label>Liste des inventaire</ion-label>
+           
+          </ion-segment-button>
+         
+        </ion-segment>
+<ion-content *ngIf="selectedSegement == 'CreateInv'">
+
+  
+
+
+  <app-create-inv *ngIf="hideMe"></app-create-inv>
+
+  <app-generate-inv *ngIf="!hideMe"></app-generate-inv>
+
+
+ 
+
+
+  </ion-content>
+
+  <ion-content *ngIf="selectedSegement == 'listInventaire'">
+
+    <app-inventaire-list></app-inventaire-list>
+  </ion-content>
+    
+
+
+

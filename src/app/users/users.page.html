@@ -1,0 +1,100 @@
+  
+<div class="table users" >
+  <ion-row *ngIf="hideMe" class="top">
+    <ion-col *ngIf="hideMe" size="3"> Nom </ion-col>
+    <ion-col *ngIf="hideMe" size="3"> Login </ion-col>
+    <ion-col *ngIf="hideMe" size="4"> Téléphone </ion-col>
+    <ion-col *ngIf="hideMe" size="2"> éditer </ion-col>
+  </ion-row>
+  <ion-row *ngIf="!hideMe" class="top">
+    <ion-col class="show" size="6"> Formulaire </ion-col>
+  </ion-row>
+  <ion-content class="scrol">
+    <ion-scroll *ngIf="hideMe" scrollY="true" direction="xy">
+
+  
+      <ion-row  *ngFor="let user of crud.Users"   class="data-row">
+        <ion-col size="3"> {{user.nom}}</ion-col>
+        <ion-col size="3"> {{user.username}} </ion-col>
+        <ion-col size="4"> {{user.tele}} </ion-col>
+        <ion-col class="edit" size="2">
+          <ion-icon src="../../assets/mdicons/edit.svg"></ion-icon>
+        </ion-col>
+      </ion-row>
+    </ion-scroll>
+    <ion-scroll  *ngIf="!hideMe" scrollY="true" direction="xy">
+
+      <ion-content class=" add-inv ion-padding">
+ 
+        <ion-item>
+          <ion-label position="floating">Nom </ion-label>
+          <ion-input [(ngModel)]="nom" type="text" ></ion-input>
+        </ion-item>
+      
+    
+        <ion-item>
+          <ion-label position="floating">prenom</ion-label>
+          <ion-input [(ngModel)]="prenom" typ="text" ></ion-input>
+          
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">username</ion-label>
+          <ion-input [(ngModel)]="username" typ="text" ></ion-input>
+          
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">Email</ion-label>
+          <ion-input [(ngModel)]="email" typ="email" ></ion-input>
+          
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">Password</ion-label>
+          <ion-input [(ngModel)]="password" type="password" ></ion-input>
+          
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">Telephone</ion-label>
+          <ion-input [(ngModel)]="tele" typ="number" ></ion-input>
+          
+        </ion-item>
+       
+    
+      <ion-item>
+          <ion-label position="floating" >role</ion-label>
+          <ion-select [(ngModel)]="role" value="0">
+            <ion-select-option value="0">Admin sepérieure</ion-select-option>
+            <ion-select-option value="1">Admin</ion-select-option>
+            <ion-select-option value="2">Employé</ion-select-option>
+          </ion-select>
+        </ion-item>
+       
+    
+      
+       
+     
+      
+    
+    </ion-content>
+
+    </ion-scroll>
+    <ion-toolbar class="add">
+      <div *ngIf="hideMe" class="butt">
+        <ion-fab-button (click)="hide()"
+          ><ion-icon name="add"></ion-icon>
+        </ion-fab-button>
+        <ion-label> Ajouter Utilisateur </ion-label>
+      </div>
+      <div *ngIf="!hideMe" class="butt1">
+        <ion-fab-button (click)="createUser()"
+          ><ion-icon src="../../assets/mdicons/save.svg"></ion-icon>
+        </ion-fab-button   >
+        <ion-label> Enregistrer</ion-label>
+
+        <ion-fab-button (click)="retour()"
+          ><ion-icon src="../../assets/mdicons/retour.svg"></ion-icon>
+        </ion-fab-button>
+        <ion-label>Retour </ion-label>
+      </div>
+    </ion-toolbar>
+  </ion-content>
+</div>

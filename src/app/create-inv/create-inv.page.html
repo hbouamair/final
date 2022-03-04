@@ -1,0 +1,92 @@
+<ion-content *ngIf="create" class=" add-inv ion-padding">
+
+
+    <ion-item>
+        <ion-label position="floating">Titre</ion-label>
+        <ion-input [(ngModel)]="titre" type="text"></ion-input>
+    </ion-item>
+
+
+    <ion-item>
+        <ion-label position="floating">Date</ion-label>
+        <ion-datetime [(ngModel)]="date" displayFormat="MM/DD/YYYY" min="2000-03-14" max="2030-12-09" value="2002-09-23T15:03:46.789">
+            <ion-icon slot="end" name="calendar"></ion-icon>
+        </ion-datetime>
+
+    </ion-item>
+
+
+    <ion-item>
+        <ion-label position="floating">Type</ion-label>
+        <ion-select [(ngModel)]="type" value="plannifié">
+            <ion-select-option value="plannifié">Plannifié</ion-select-option>
+            <ion-select-option value="termine">Terminé</ion-select-option>
+            <ion-select-option value="attente">en attente</ion-select-option>
+        </ion-select>
+    </ion-item>
+
+
+
+    <ion-button class="btn-valid" (click)="createInv()">Valider</ion-button>
+
+
+</ion-content>
+
+<ion-content *ngIf="!create">
+
+    <ion-card>
+        <ion-card-header>
+            <ion-row>
+
+                <ion-col>
+                    <ion-card-subtitle>Reference
+
+                    </ion-card-subtitle>
+                    <ion-label> </ion-label>
+
+                </ion-col>
+                <ion-col>
+                    <ion-card-subtitle>Type
+
+                    </ion-card-subtitle>
+                    <ion-label slot="end"> </ion-label>
+
+                </ion-col>
+            </ion-row>
+        </ion-card-header>
+
+        <ion-card-content>
+
+
+            <ion-button class="upload" (click)="connect()">
+                <ion-label>Choisir un fichier &nbsp;</ion-label>
+                <ion-icon src="../../assets/ms-excel.svg"></ion-icon>
+
+            </ion-button>
+            <ion-scroll>
+                <ion-list>
+                    <ion-radio-group *ngFor="let item of items" (ionChange)="radioGroupChange($event)" [(ngModel)]="selectedValue">
+                        <ion-item (ionSelect)="radioSelect($event)">
+                            <ion-label>{{item.name}}</ion-label>
+                            <ion-label class="date_modif">{{item.modifiedDate | date: 'dd/MM/yyyy hh:mm:ss' }}</ion-label>
+                            <ion-radio slot="start" color="success" (ionSelect)="select(item)" [value]="item"></ion-radio>
+                        </ion-item>
+
+
+                    </ion-radio-group>
+
+                    <ion-button slot="end" (click)="upload()">Valider</ion-button>
+                </ion-list>
+            </ion-scroll>
+
+
+
+
+
+
+
+        </ion-card-content>
+    </ion-card>
+
+
+</ion-content>

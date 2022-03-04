@@ -1,0 +1,115 @@
+@font-face {
+    font-family: 'acrom';
+    src: url('../../assets/fonts/Acrom-Medium.ttf');
+  }
+
+
+
+
+ 
+
+    ion-item{
+     
+        --overflow: hidden;
+    }
+    ion-segment{
+        
+    height: 48px;
+
+        --overflow: hidden;
+        
+    }
+
+
+  
+  
+
+.md .custom-icon {
+    --indicator-color: lightgray;
+    padding :13px ;
+  }
+  
+  .md .segment-icon {
+    --background-hover: rgba(59, 89, 153, 0.04);
+    --color-activated: #3b5999;
+    --color-checked: #3b5999;
+  }
+  
+  
+    .md .segment-slack {
+    --background-hover: rgba(58, 175, 133, 0.04);
+    --color-activated: #3aaf85;
+    --color-checked: #3aaf85;
+  }
+ 
+
+ 
+  
+  .custom-icon ion-icon {
+    font-size: 25px;
+  }
+  
+
+
+    ion-label{
+        font-family: acrom;
+    }
+
+    ion-card-header{
+
+
+        ion-card-subtitle{
+            color: #B2C4CC;
+            font-size: 12px;
+        }
+        ion-label{
+            color: #3D5A68;
+            font-size: 16px ;
+        }
+
+
+      
+    }
+    ion-segment{
+        --overflow: hidden;
+        ion-label{
+            font-size:12px;
+            text-transform :none ;
+        }
+    }
+    ion-segment-button{
+        ion-label{
+            font-size: 12px;
+        }
+    }
+
+
+
+.upload{
+    --background: #3D5A68;
+    width: 210px;
+    height: 50px;
+    font-size: 12px;
+    border-radius: 7px;
+    ion-label{
+        font-family: acrom;
+    }
+    ion-icon{ 
+        font-size: 310px;
+    }
+   
+
+
+
+
+
+
+  }
+
+
+
+
+
+
+
+

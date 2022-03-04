@@ -1,0 +1,11 @@
+{
+  "background_color": "#FFF",
+  "display": "standalone",
+  "name": "Wms Inventory",
+  "short_name": "Wms Inventory",
+  "version": "io.ionic.starter",
+  "description": "Wms Inventory",
+  "author": "Ionic Framework Team",
+  "icons": [],
+  "start_url": "index.html"
+}

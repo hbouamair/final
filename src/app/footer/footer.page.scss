@@ -1,0 +1,28 @@
+
+
+ion-footer{
+
+    --background : #3D5A68;
+    ion-toolbar{
+      padding-top: 4px;
+      text-align: -webkit-center;
+      --background:#3D5A68;
+    }
+    
+    .qr{
+      color:#FFFFFF ;
+      width: 10px !important;
+      font-family: acrom;
+      font-size: 10px;
+    }
+   
+  
+    ion-fab-button{
+  
+     border-radius: 50%;
+  
+     border: 3px solid #344C57;
+      box-shadow: 0 0 0 3px  #668391;
+      --background:linear-gradient(#FFB701,#FF9302);
+    }
+  }

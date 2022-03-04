@@ -1,0 +1,14 @@
+<ion-list>
+    <ion-item-divider>
+        <ion-checkbox slot="end" [disabled]="isCheckboxDisabled" (ionChange)="selectCP(item)"></ion-checkbox>
+        <!-- <ion-radio slot="start"></ion-radio> -->
+        <!-- <ion-toggle slot="start"></ion-toggle> -->
+        <ion-label>
+            <h2>{{item.name}}</h2>
+            <p>{{item.modifiedDate}}</p>
+
+        </ion-label>
+
+
+    </ion-item-divider>
+</ion-list>

@@ -1,0 +1,132 @@
+<ion-content>
+    <ion-content class="ion-padding">
+
+        <ion-card *ngFor="let stock of crud.Stocks">
+            <ion-card-content *ngIf="hideMe">
+
+                <ion-row class="titre padding">
+                    <ion-col size="4">
+                        <ion-label> material</ion-label>
+                    </ion-col>
+                    <ion-col size="5">
+                        <ion-label> Quantité physique</ion-label>
+                    </ion-col>
+                    <ion-col>
+                        <ion-label>emplacement</ion-label>
+                    </ion-col>
+                </ion-row>
+
+                <ion-row padding>
+
+                    <ion-col size="4">
+                        <ion-label> {{ stock.material }}</ion-label>
+                    </ion-col>
+                    <ion-col size="5">
+                        <ion-label>{{ stock.Qphysique }}</ion-label>
+                    </ion-col>
+                    <ion-col>
+                        <ion-label> {{stock.id_emplacement}}</ion-label>
+                    </ion-col>
+                </ion-row>
+
+
+            </ion-card-content>
+            <ion-row *ngIf="hideMe" style="background:#E6ECEF" class="icon" padding>
+
+                <ion-col>
+                    <ion-item [routerLink]="['/editStock/', stock.stock_id]" lines="none">
+                        <ion-icon name="create"> </ion-icon>
+                        <ion-label>Editer </ion-label>
+                    </ion-item>
+                </ion-col>
+                <ion-col>
+                    <ion-item (click)="remove(stock.stock_id)" lines="none">
+                        <ion-icon name="trash"> </ion-icon>
+                        <ion-label>Supprimer </ion-label>
+                    </ion-item>
+                </ion-col>
+
+            </ion-row>
+
+        </ion-card>
+
+
+        <div *ngIf="hideMe" class=" icons-buttom ion-padding">
+
+            <ion-row>
+                <ion-col center>
+                    <ion-fab-button (click)="hide()">
+                        <ion-icon name="add">
+                        </ion-icon>
+                    </ion-fab-button>
+                    <ion-label>ajouter Stock</ion-label>
+                </ion-col>
+
+
+            </ion-row>
+
+
+
+        </div>
+
+
+        <ion-content *ngIf="!hideMe" class=" add-inv ion-padding">
+
+            <ion-item>
+                <ion-label position="floating">material</ion-label>
+                <ion-input [(ngModel)]="material" type="text"></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label position="floating">Quantité physique</ion-label>
+                <ion-input [(ngModel)]="Qphysique" type="number"></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label position="floating">Quantité sap</ion-label>
+                <ion-input [(ngModel)]="Qsap" type="number"></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label position="floating">ecart </ion-label>
+                <ion-input [(ngModel)]="ecart" type="number"></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label position="floating">emplacement</ion-label>
+                <ion-input [(ngModel)]="id_emplacement" type="number"></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label position="floating">inventaire</ion-label>
+                <ion-input [(ngModel)]="id_inventaire" type="number"></ion-input>
+            </ion-item>
+            <div lines="none" *ngIf="!hideMe" class="icons-buttom ion-padding">
+
+                <ion-row>
+                    <ion-col>
+                        <ion-fab-button (click)="createStock()">
+                            <ion-icon name="save">
+                            </ion-icon>
+                        </ion-fab-button>
+                        <ion-label>Enregistrer</ion-label>
+                    </ion-col>
+                    <ion-col>
+                        <ion-fab-button (click)="show()">
+                            <ion-icon src="../../assets/mdicons/retour.svg">
+                            </ion-icon>
+                        </ion-fab-button>
+                        <ion-label>retour</ion-label>
+
+                    </ion-col>
+
+
+                </ion-row>
+
+
+
+
+
+
+
+            </div>
+
+        </ion-content>
+
+
+        <!-- Create -->

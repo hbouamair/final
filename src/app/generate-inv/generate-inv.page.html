@@ -1,0 +1,33 @@
+<ion-card>
+  <ion-card-header>
+    <ion-row>
+
+      <ion-col>
+    <ion-card-subtitle>Reference
+     
+    </ion-card-subtitle>
+    <ion-label> </ion-label>
+
+  </ion-col>
+   <ion-col>
+    <ion-card-subtitle>Type
+     
+    </ion-card-subtitle>
+    <ion-label slot="end"> </ion-label>
+
+   </ion-col>
+  </ion-row>
+  </ion-card-header>
+
+  <ion-card-content>
+    
+    
+      <ion-button  class="upload" (click)="inputFile.click()">
+        <ion-label>Choisir un fichier &nbsp;</ion-label>   <ion-icon  src="../../assets/ms-excel.svg"></ion-icon> 
+      
+      <input #inputFile id="input-file"  style="opacity:0" type="file" (change)="excelRead($event)"
+      multiple/>
+    </ion-button>
+  </ion-card-content>
+</ion-card>
+

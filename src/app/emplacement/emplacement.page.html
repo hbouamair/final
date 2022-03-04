@@ -1,0 +1,119 @@
+<ion-content class="scroll">
+    <ion-content class="ion-padding">
+        <ion-scroll scrollY="true ">
+            <ion-card *ngFor="let emplacement of crud.Emplacements">
+                <ion-card-content *ngIf="hideMe">
+
+                    <ion-row class="titre padding">
+                        <ion-col size="4">
+                            <ion-label> reference</ion-label>
+                        </ion-col>
+                        <ion-col size="5">
+                            <ion-label> rayon</ion-label>
+                        </ion-col>
+                        <ion-col>
+                            <ion-label>qrcode</ion-label>
+                        </ion-col>
+                    </ion-row>
+
+                    <ion-row padding>
+
+                        <ion-col size="4">
+                            <ion-label> {{ emplacement.reference }}</ion-label>
+                        </ion-col>
+                        <ion-col size="5">
+                            <ion-label>{{ emplacement.rayon }}</ion-label>
+                        </ion-col>
+                        <ion-col>
+                            <ion-label> {{ emplacement.qrcode }}</ion-label>
+                        </ion-col>
+                    </ion-row>
+
+
+                </ion-card-content>
+                <ion-row *ngIf="hideMe" style="background:#E6ECEF" class="icon" padding>
+
+                    <ion-col>
+                        <ion-item [routerLink]="['/editProduct/', emplacement.id_emplacement]" lines="none">
+                            <ion-icon name="create"> </ion-icon>
+                            <ion-label>Editer </ion-label>
+                        </ion-item>
+                    </ion-col>
+                    <ion-col>
+                        <ion-item (click)="remove(emplacement.id_emplacement)" lines="none">
+                            <ion-icon name="trash"> </ion-icon>
+                            <ion-label>Supprimer </ion-label>
+                        </ion-item>
+                    </ion-col>
+
+                </ion-row>
+
+            </ion-card>
+        </ion-scroll>
+
+        <ion-content *ngIf="hideMe" class=" icons-buttom ion-padding">
+
+            <ion-row>
+                <ion-col center>
+                    <ion-fab-button (click)="hide()">
+                        <ion-icon name="add">
+                        </ion-icon>
+                    </ion-fab-button>
+                    <ion-label>ajouter un emplacement</ion-label>
+                </ion-col>
+
+
+            </ion-row>
+
+
+
+        </ion-content>
+
+
+        <ion-content *ngIf="!hideMe" class="  add-inv ion-padding">
+            <ion-title>Emplacement</ion-title>
+            <ion-item>
+                <ion-label position="floating">reference</ion-label>
+                <ion-input [(ngModel)]="reference" type="text"></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label position="floating">Rayon</ion-label>
+                <ion-input [(ngModel)]="rayon" type="text"></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label position="floating">qrcode</ion-label>
+                <ion-input [(ngModel)]="qrcode" type="text"></ion-input>
+            </ion-item>
+            <div *ngIf="!hideMe" class=" icons-buttom ion-padding">
+
+                <ion-row>
+                    <ion-col>
+                        <ion-fab-button (click)="createEmplacement()">
+                            <ion-icon name="save">
+                            </ion-icon>
+                        </ion-fab-button>
+                        <ion-label>Enregistrer</ion-label>
+                    </ion-col>
+                    <ion-col>
+                        <ion-fab-button (click)="show()">
+                            <ion-icon src="../../assets/mdicons/retour.svg">
+                            </ion-icon>
+                        </ion-fab-button>
+                        <ion-label>retour</ion-label>
+
+                    </ion-col>
+
+
+                </ion-row>
+
+
+
+
+
+
+
+            </div>
+        </ion-content>
+
+
+        <!-- Create -->
